@@ -1,60 +1,58 @@
 import type { Account, Client } from './types';
-import { subDays } from 'date-fns';
 
-const today = new Date();
-
-export const initialClients: Record<string, Client> = {
-  'client-1': {
-    id: 'client-1',
-    name: 'Juan Pérez',
-    phone: '+1 234 567 8900',
-    startDate: subDays(today, 28).toISOString(), // Expiring in 2 days
-    pricePaid: 5.0,
-  },
-  'client-2': {
-    id: 'client-2',
-    name: 'María García',
-    phone: '+1 987 654 3210',
-    startDate: subDays(today, 10).toISOString(),
-    pricePaid: 5.0,
-  },
-  'client-3': {
-    id: 'client-3',
-    name: 'Carlos López',
-    phone: '+1 555 123 4567',
-    startDate: subDays(today, 45).toISOString(), // A month and a half ago
-    pricePaid: 4.5,
-  }
-};
+export const initialClients: Record<string, Client> = {};
 
 export const initialAccounts: Account[] = [
   {
-    id: 'acc-1',
+    id: 'netflix',
     platform: 'Netflix',
     email: 'contacto@dominio.com',
-    cost: 15.99,
+    cost: 0,
     billingCycle: 'MONTHLY',
     profiles: [
-      { id: 'prof-1-1', name: 'Perfil 1', status: 'OCCUPIED', clientId: 'client-1' },
-      { id: 'prof-1-2', name: 'Perfil 2', status: 'OCCUPIED', clientId: 'client-2' },
-      { id: 'prof-1-3', name: 'Perfil 3', status: 'FREE' },
-      { id: 'prof-1-4', name: 'Perfil 4', status: 'FREE' },
+      { id: 'netflix-1', name: 'Perfil 1', status: 'FREE' },
+      { id: 'netflix-2', name: 'Perfil 2', status: 'FREE' },
+      { id: 'netflix-3', name: 'Perfil 3', status: 'FREE' },
+      { id: 'netflix-4', name: 'Perfil 4', status: 'FREE' },
     ]
   },
   {
-    id: 'acc-2',
-    platform: 'Disney+',
-    email: 'disney@dominio.com',
-    cost: 10.99,
+    id: 'spotify',
+    platform: 'Spotify',
+    email: 'spotify@dominio.com',
+    cost: 0,
     billingCycle: 'MONTHLY',
     profiles: [
-      { id: 'prof-2-1', name: 'Perfil 1', status: 'OCCUPIED', clientId: 'client-3' },
-      { id: 'prof-2-2', name: 'Perfil 2', status: 'FREE' },
-      { id: 'prof-2-3', name: 'Perfil 3', status: 'FREE' },
-      { id: 'prof-2-4', name: 'Perfil 4', status: 'FREE' },
-      { id: 'prof-2-5', name: 'Perfil 5', status: 'FREE' },
-      { id: 'prof-2-6', name: 'Perfil 6', status: 'FREE' },
-      { id: 'prof-2-7', name: 'Perfil 7', status: 'FREE' },
+      { id: 'spotify-1', name: 'Perfil 1', status: 'FREE' },
+      { id: 'spotify-2', name: 'Perfil 2', status: 'FREE' },
+      { id: 'spotify-3', name: 'Perfil 3', status: 'FREE' },
+      { id: 'spotify-4', name: 'Perfil 4', status: 'FREE' },
+    ]
+  },
+  {
+    id: 'amazon',
+    platform: 'Amazon Prime',
+    email: 'amazon@dominio.com',
+    cost: 0,
+    billingCycle: 'MONTHLY',
+    profiles: [
+      { id: 'amazon-1', name: 'Perfil 1', status: 'FREE' },
+      { id: 'amazon-2', name: 'Perfil 2', status: 'FREE' },
+      { id: 'amazon-3', name: 'Perfil 3', status: 'FREE' },
+      { id: 'amazon-4', name: 'Perfil 4', status: 'FREE' },
+    ]
+  },
+  {
+    id: 'crunchyroll',
+    platform: 'Crunchyroll',
+    email: 'crunchyroll@dominio.com',
+    cost: 0,
+    billingCycle: 'MONTHLY',
+    profiles: [
+      { id: 'crunchyroll-1', name: 'Perfil 1', status: 'FREE' },
+      { id: 'crunchyroll-2', name: 'Perfil 2', status: 'FREE' },
+      { id: 'crunchyroll-3', name: 'Perfil 3', status: 'FREE' },
+      { id: 'crunchyroll-4', name: 'Perfil 4', status: 'FREE' },
     ]
   }
 ];

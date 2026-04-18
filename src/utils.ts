@@ -1,12 +1,21 @@
 import { addDays, differenceInDays, differenceInMonths, parseISO } from 'date-fns';
 import type { Account, Client } from './types';
 
-export const calculateExpirationDate = (startDate: string) => {
-  return addDays(parseISO(startDate), 30);
+export const formatCurrency = (value: number) => {
+  return new Intl.NumberFormat('es-CO', {
+    style: 'currency',
+    currency: 'COP',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+  }).format(value);
 };
 
-export const daysUntilExpiration = (startDate: string) => {
-  const expirationDate = calculateExpirationDate(startDate);
+export const calculateExpirationDate = (startDate: string, durationMonths: number = 1) => {
+  return addDays(parseISO(startDate), 30 * durationMonths);
+};
+
+export const daysUntilExpiration = (startDate: string, durationMonths: number = 1) => {
+  const expirationDate = calculateExpirationDate(startDate, durationMonths);
   return differenceInDays(expirationDate, new Date());
 };
 
